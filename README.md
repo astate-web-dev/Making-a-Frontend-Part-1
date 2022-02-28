@@ -18,7 +18,7 @@ Download the file `notWordle.png` from the class note section on cscade and add 
 
 ## HTML
 
-Now you can create your four HTML files. Add each of them to the `public/` directory. Remember to use fully compliant HTML markup. Use the `html:5` emmet completion in VS code.
+Now you can create your HTML files. Add each of them to the `public/` directory. Remember to use fully compliant HTML markup. Use the `html:5` emmet completion in VS code.
 
 ### `index.html`
 
@@ -27,6 +27,11 @@ This is a specially named file. `index.html` is the "homepage" for the website. 
 This file will be rather simple. The `title` should be "Welcome To Not Wordle".
 
 The `body` should contain an `img` tag containing `notWorlde.png` (which is in the images directory) and a level one header with the text "Welcome to Not Wordle!". Then include a link using the `a` (anchor) tag to `/game` using the `href` attribute.
+
+Links to docs:
+
+- [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
+- [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
 
 **This is not HTML! It is just an example of the nesting.**
 ```
@@ -41,7 +46,7 @@ body
 This is the main game page and should contain the following:
 - an unordered list of 6 guesses all containing the text `?????`
 - a form, with `method` attribute set to `POST` and an `action` attribute set to `/api/guess`
-  - a text input with the `name` attribute set to `guess`
+  - a text input with the `name` attribute set to `guess`, required
   - a button with the text `Submit`
 
 **This is not HTML! It is just an example of the nesting.**
@@ -63,15 +68,20 @@ The browser will submit the `POST` request to `/api/guess` when you hit the subm
 
 The more pressing issue is that the server won't be able to parse the body of this request! This is because HTML forms use `urlencoded` messages bodies for POST requests and the server only knows how to parse JSON encoded message bodies. So you'll need to enable `urlencoded` parsing. You'll fix this later.
 
+Links to docs:
+
+- [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
+- [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+
 
 ### `register.html`
 
 This is the registration page where we allow user's to create accounts.
 
 - a form, with `method` attribute set to `POST` and an `action` attribute set to `/register`
-  - a text input with the `name` attribute set to `username`
-  - a text input with the `name` attribute set to `password` and `type` set to `password`
-  - a text input with the `name` attribute set to `confirmPassword` and `type` set to `password`
+  - a text input with the `name` attribute set to `username`, required
+  - a text input with the `name` attribute set to `password` and `type` set to `password`, required
+  - a text input with the `name` attribute set to `confirmPassword` and `type` set to `password`, required
   - a button with the text `Submit`
 
 **This is not HTML! It is just an example of the nesting.**
@@ -89,8 +99,8 @@ body
 This is almost the registration page where we allow user's to create accounts and now they can log in instead!
 
 - a form, with `method` attribute set to `POST` and an `action` attribute set to `/login`
-  - a text input with the `name` attribute set to `username`
-  - a text input with the `name` attribute set to `password` and `type` set to `password`
+  - a text input with the `name` attribute set to `username`, required
+  - a text input with the `name` attribute set to `password` and `type` set to `password`, required
   - a button with the text `Submit`
 
 **This is not HTML! It is just an example of the nesting.**
