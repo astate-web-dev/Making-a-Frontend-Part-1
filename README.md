@@ -26,7 +26,7 @@ This is a specially named file. `index.html` is the "homepage" for the website. 
 
 This file will be rather simple. The `title` should be "Welcome To Not Wordle".
 
-The `body` should contain an `img` tag containing `notWorlde.png` (which is in the images directory) and a level one header with the text "Welcome to Not Wordle!". Then include a link using the `a` (anchor) tag to `/game` using the `href` attribute.
+The `body` should contain an `img` tag containing `notWorlde.png` (which is in the images directory) and a level one header with the text "Welcome to Not Wordle!". Then include a link using the `a` (anchor) tag to `/game` using the `href` attribute and the text `"Play the game!"`.
 
 Links to docs:
 
@@ -41,12 +41,20 @@ body
     a
 ```
 
+### Expected Page
+
+![Game Page HTML](https://github.com/csaldivar-astate/webDev-images/blob/main/makingTheFrontEnd-part1/notWordleIndex.png?raw=true)
+
 ### `game.html`
+
+The `title` should be `"Not Wordle"`.
 
 This is the main game page and should contain the following:
 - an unordered list of 6 guesses all containing the text `?????`
 - a form, with `method` attribute set to `POST` and an `action` attribute set to `/api/guess`
-  - a text input with the `name` attribute set to `guess`, required
+  - a div that will contain the following elements
+    - a label tag with the `for` attribute set to `guess`
+    - a text input with the `name` attribute set to `guess`, and the `required` boolean attribute
   - a button with the text `Submit`
 
 **This is not HTML! It is just an example of the nesting.**
@@ -60,13 +68,19 @@ body
         li
         li
     form 
-        input
+        div
+          label
+          input
         button
 ```
 
 The browser will submit the `POST` request to `/api/guess` when you hit the submit button. Notice how the page reloads when you hit submit? That is the default browser behavior. We can disable it with JavaScript later.
 
 The more pressing issue is that the server won't be able to parse the body of this request! This is because HTML forms use `urlencoded` messages bodies for POST requests and the server only knows how to parse JSON encoded message bodies. So you'll need to enable `urlencoded` parsing. You'll fix this later.
+
+### Expected Page
+
+![Game Page HTML](https://github.com/csaldivar-astate/webDev-images/blob/main/makingTheFrontEnd-part1/game.png?raw=true)
 
 Links to docs:
 
@@ -76,41 +90,72 @@ Links to docs:
 
 ### `register.html`
 
+The `title` should be `"Register for Not Wordle"`.
+
 This is the registration page where we allow user's to create accounts.
 
 - a form, with `method` attribute set to `POST` and an `action` attribute set to `/register`
-  - a text input with the `name` attribute set to `username`, required
-  - a text input with the `name` attribute set to `password` and `type` set to `password`, required
-  - a text input with the `name` attribute set to `confirmPassword` and `type` set to `password`, required
+  - a div that will contain the following elements
+    - a label tag with the `for` attribute set to `username` and the text `Username`
+    - a text input with the `name` attribute set to `username`, and the `required` boolean attribute
+  - a div that will contain the following elements
+    - a label tag with the `for` attribute set to `password` and the text `Password`
+    - a text input with the `name` attribute set to `password` and `type` set to `password`, and the `required` boolean attribute
+  - a div that will contain the following elements
+    - a label tag with the `for` attribute set to `confirmPassword` and the text `Confirm Password`
+    - a text input with the `name` attribute set to `confirmPassword` and `type` set to `password`, and the `required` boolean attribute
   - a button with the text `Submit`
 
 **This is not HTML! It is just an example of the nesting.**
 ```
 body
     form 
-        input
-        input
-        input
+        div
+          label
+          input
+        div
+          label
+          input
+        div
+          label
+          input
         button
 ```
+
+
+### Expected Page
+![Register Page HTML](https://github.com/csaldivar-astate/webDev-images/blob/main/makingTheFrontEnd-part1/register.png?raw=true)
 
 ### `login.html`
 
-This is almost the registration page where we allow user's to create accounts and now they can log in instead!
+The `title` should be `"Log in to Not Wordle"`.
+
+This is almost the registration page where we allow user's to create accounts and now they can log in instead.
 
 - a form, with `method` attribute set to `POST` and an `action` attribute set to `/login`
-  - a text input with the `name` attribute set to `username`, required
-  - a text input with the `name` attribute set to `password` and `type` set to `password`, required
+  - a div that will contain the following elements
+    - a label tag with the `for` attribute set to `username` and the text `Username`
+    - a text input with the `name` attribute set to `username`, and the `required` boolean attribute
+  - a div that will contain the following elements
+    - a label tag with the `for` attribute set to `password` and the text `Password`
+    - a text input with the `name` attribute set to `password` and `type` set to `password`, and the `required` boolean attribute
   - a button with the text `Submit`
 
 **This is not HTML! It is just an example of the nesting.**
 ```
 body
     form 
-        input
-        input
+        div
+          label
+          input
+        div
+          label
+          input
         button
 ```
+
+### Expected Page
+![Login Page HTML](https://github.com/csaldivar-astate/webDev-images/blob/main/makingTheFrontEnd-part1/login.png?raw=true)
 
 ## Enabling `urlencoded` parsing
 
